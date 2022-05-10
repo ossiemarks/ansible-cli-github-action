@@ -15,5 +15,9 @@ You can also execute standard `Linux` commands as base `Docker` image is `ubuntu
 ```
 uses: actions/ansible-cli-action@latest
 with:
-  command: "ansible-playbook main.yml"
+  # Basic AWS usage
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+  <!-- -v $(pwd):/data \ -->
+  cytopia/ansible:latest-aws ansible-playbook playbook.yml
 ```
